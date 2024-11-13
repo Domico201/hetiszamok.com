@@ -1,12 +1,25 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Szerencsekerék</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Szerencsekerék</h1>
-    <div id="wheel" class="wheel">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEBUQExMWFhUWFxcZFhgVFRYYFxcZFhkWFxYWIB8YHSghGCElGxgYITEhJSktLjEuFx8zODMtNygtLisBCgoKDg0OGxAQGy0lICYtLy8rLS0tLS0tLS0rLS0tLS8rLi0vLS0tLy0tLy0tLS0tLS0tLS0tLy0tLS0tLS0tLf/AABEIAOEA4QMBEQACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABAUDBgcCCAH/xABJEAACAQMCAggDBAcDCwMFAAABAgMABBEFEiExBgcTIkFRYXEUMoFCUpGhFSMzYnKCkrGywQg0Q1NUc4OToqPSJDXhFhdEwvD/xAAbAQEAAgMBAQAAAAAAAAAAAAAAAwQCBQYBB//EADsRAAIBAgMEBwcDAwQDAQAAAAABAgMEERIxBSFBURNhcYGRodEGFCIyscHwQlLhM3LxI2KCwhU0oiT/2gAMAwEAAhEDEQA/AO4V6BQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgOddbfWKdMRYIArXMo3DdxEacRvI8SSCAOXA+WD4DhzdMtZnJcXV03gezLhR6YjAAoD8/8AqHWv9ovv6pqA/R0l1ocfiL3h5tL/AI0Bkg6xdYhcMbubPlKAwOPDDigO99VvT1dVt23qEuIsCVV+Ug8pFzxAPHh4Ee1AbvXoFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKA8yyBQWYgAcyTgD6mgNH1/rZ0q1yvbGdx9mAb/8AqJCfnXgPnzrD6UDUr97sIUUqqorEEhVHp5nJ+tAdN1fpFc2ujabPpsgitzGI5iiRswmAG4NuU4ywfj4n3FbDZ9KlUbjNYvgRVJSisUawOtDV/wDa/wDswf8AhWz9woft82QdNI/f/ujq/wDtX/Zg/wDCnuFD9vmx00jY5Ndnu+j99PqRR0yqWrmNVcy58NoAwG28QPB/AVqr6lSpSUYa8SxTk2sWc76t+mB0u8NwYzIjIUdA204JBB5HkR+dUSQ7toPXFpdzhXka3Y+E64X+pSV/EigN8trhJFDxsrqeTKQwP1Fegy0AoBQCgFAKAUAoBQCgFAKAUAoBQCgFAfjMACScAcSTyFAcy6VdbsSSi006P4y5ZtoK57IMfIjjIfbh614DkXWNLrRkUal2ih8mNAV7LhjIAjJXIyOfGsoQlN4RWJ42lqdG6pdK0
+const spinButton = document.getElementById('spinButton');
+const wheel = document.getElementById('wheel');
+const resultDisplay = document.getElementById('result');
+
+// Generáljuk le a szegmenseket
+for (let i = 0; i < 25; i++) {
+    const segment = document.createElement('div');
+    segment.className = 'segment';
+    segment.style.transform = `rotate(${(i * 360) / 25}deg)`;
+    segment.innerText = i + 1; // Szegmensek számának megjelenítése
+    wheel.appendChild(segment);
+}
+
+spinButton.addEventListener('click', () => {
+    const randomDegree = Math.floor(Math.random() * 360 + 3600); // 10 teljes pörgetés + véletlenszerű fok
+    wheel.style.transform = `rotate(${randomDegree}deg)`;
+
+    // Várjunk, amíg a kerék megáll, majd számoljuk ki a pörgetett számot
+    setTimeout(() => {
+        const actualDegree = randomDegree % 360; // Az aktuális fok
+        const segmentAngle = 360 / 25; // Mivel 25 szegmens van
+        const segmentIndex = Math.floor((actualDegree + segmentAngle / 2) / segmentAngle); // Középpont alapján számoljuk
+        resultDisplay.innerText = `Pörgetett szám: ${segmentIndex + 1}`;
+    }, 4000); // 4 másodperc a pörgetés időtartama
+});
