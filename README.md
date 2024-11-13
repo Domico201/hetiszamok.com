@@ -1,4 +1,4 @@
-# hetiszamok.com <!DOCTYPE html>
+# hetiszamok.gitub.io <!DOCTYPE html>
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
