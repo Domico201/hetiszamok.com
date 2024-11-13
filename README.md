@@ -91,7 +91,7 @@
 <body>
     <div id="wheel-container">
         <div id="arrow"></div>
-        <img src="wheel.png" id="wheel" alt="Szerencsekerék">
+        <img src="wheel1.png" id="wheel" alt="Szerencsekerék">
         <button id="spin-button" onclick="spinWheel()">Pörgetés</button>
         <div id="result"></div>
     </div>
