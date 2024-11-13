@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Szerencsekerék</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
 
         #wheel-container {
             position: relative;
@@ -97,11 +107,11 @@
             { number: 2, chance: 5 },
             { number: 3, chance: 5 },
             { number: 4, chance: 5 },
-            { number: 5, chance: 5 },
-            { number: 6, chance: 5 },
+            { number: 5, chance: 10 },
+            { number: 6, chance: 10 },
             { number: 7, chance: 5 },
             { number: 8, chance: 5 },
-            { number: 9, chance: 5 },
+            { number: 9, chance: 10 },
             { number: 10, chance: 5 },
             { number: 11, chance: 5 },
             { number: 12, chance: 5 },
@@ -112,12 +122,12 @@
             { number: 17, chance: 5 },
             { number: 18, chance: 5 },
             { number: 19, chance: 5 },
-            { number: 20, chance: 5 },
+            { number: 20, chance: 10 },
             { number: 21, chance: 5 },
             { number: 22, chance: 5 },
             { number: 23, chance: 5 },
             { number: 24, chance: 5 },
-            { number: 25, chance: 5 }
+            { number: 25, chance: 10 }
         ];
 
         // Kiválaszt egy számot az esélyek alapján
